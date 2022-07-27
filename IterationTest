@@ -1,0 +1,34 @@
+public class IterationTest {
+
+    public static void main(String... args) {
+        if (args.length != 2) {
+            throw new IllegalArgumentException("invalid arguments");
+        }
+        final int A;
+        try {
+            A = Integer.parseInt(args[0]);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("A is not a valid integer");
+        }
+        final int X;
+        try {
+            X = Integer.parseInt(args[1]);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("B is not a valid integer");
+        }
+        System.out.print("iteration 1 ==> ");
+        loop(A, X);
+        System.out.print("iteration 2 ==> ");
+        loop(A + 1, 2 * X);
+        System.out.print("iteration 3 ==> ");
+        loop(A + 2, 3 * X);
+    }
+
+    private static void loop(int a, int x) {
+        System.out.println("A value is " + a + ", X value is " + x);
+        for (int i = a; i <= x; i = i + a) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
